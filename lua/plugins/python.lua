@@ -2,12 +2,12 @@ return {
   -- add required packages
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
         "black",
         "ruff",
-      },
-    },
+      })
+    end,
   },
   -- configure auto formatter
   {

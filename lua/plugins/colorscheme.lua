@@ -2,7 +2,7 @@ return {
   -- add gruvbox
   { "ellisonleao/gruvbox.nvim" },
 
-  -- configure LazyVim to load catpuccin
+  -- configure LazyVim to load below theme
   {
     "LazyVim/LazyVim",
     opts = {
