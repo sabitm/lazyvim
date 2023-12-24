@@ -18,4 +18,15 @@ return {
       })
     end,
   },
+  -- add html lsp on svelte file
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        html = {
+          filetypes = { "svelte", "html" },
+        },
+      },
+    },
+  },
 }
