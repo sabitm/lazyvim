@@ -4,3 +4,7 @@
 
 -- Add LspRestart keymap
 vim.keymap.set("n", "<leader>cz", ":LspRestart<CR>", { desc = "Restart LSP" })
+
+-- Delete to unused register instead
+vim.keymap.set("n", "gd", '"1d', { desc = "Delete to unused register" })
+vim.keymap.set("n", "gD", '"1D', { desc = "Delete till end to unused register" })
