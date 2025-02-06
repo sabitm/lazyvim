@@ -50,3 +50,15 @@ vim.keymap.set("n", "gd", '"1d', { desc = "Delete to unused register" })
 vim.keymap.set("n", "gD", '"1D', { desc = "Delete till end to unused register" })
 vim.keymap.set("v", "gd", '"1d', { desc = "Delete to unused register" })
 vim.keymap.set("v", "gD", '"1D', { desc = "Delete till end to unused register" })
+
+-- Yank to unused register
+vim.keymap.set("n", "gy", '"1y', { desc = "Yank to unused register" })
+vim.keymap.set("n", "gY", '"1Y', { desc = "Yank till end to unused register" })
+vim.keymap.set("v", "gy", '"1y', { desc = "Yank to unused register" })
+vim.keymap.set("v", "gY", '"1Y', { desc = "Yank till end to unused register" })
+
+-- Paste from above register
+vim.keymap.set("n", "gp", '"1p', { desc = "Paste from above register" })
+vim.keymap.set("n", "gP", '"1P', { desc = "Paste before from above register" })
+vim.keymap.set("v", "gp", '"1p', { desc = "Paste from above register" })
+vim.keymap.set("v", "gP", '"1P', { desc = "Paste before from above register" })
