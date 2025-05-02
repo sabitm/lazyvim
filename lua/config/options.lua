@@ -4,3 +4,6 @@
 
 -- disable snacks animations
 vim.g.snacks_animate = false
+
+-- override clipboard
+vim.opt.clipboard = ""

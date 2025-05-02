@@ -45,20 +45,20 @@ vim.keymap.set("n", "g/", paste_escaped, { desc = "Paste escaped text into searc
 -- Add LspRestart keymap
 vim.keymap.set("n", "<leader>cz", ":LspRestart<CR>", { desc = "Restart LSP" })
 
--- Delete to unused register instead
-vim.keymap.set("n", "gzd", '"1d', { desc = "Delete to unused register" })
-vim.keymap.set("n", "gzD", '"1D', { desc = "Delete till end to unused register" })
-vim.keymap.set("v", "gzd", '"1d', { desc = "Delete to unused register" })
-vim.keymap.set("v", "gzD", '"1D', { desc = "Delete till end to unused register" })
+-- Delete to system clipboard
+vim.keymap.set("n", "gzd", '"+d', { desc = "Delete to system clipboard" })
+vim.keymap.set("n", "gzD", '"+D', { desc = "Delete till end to system clipboard" })
+vim.keymap.set("v", "gzd", '"+d', { desc = "Delete to system clipboard" })
+vim.keymap.set("v", "gzD", '"+D', { desc = "Delete till end to system clipboard" })
 
--- Yank to unused register
-vim.keymap.set("n", "gzy", '"1y', { desc = "Yank to unused register" })
-vim.keymap.set("n", "gzY", '"1Y', { desc = "Yank till end to unused register" })
-vim.keymap.set("v", "gzy", '"1y', { desc = "Yank to unused register" })
-vim.keymap.set("v", "gzY", '"1Y', { desc = "Yank till end to unused register" })
+-- Yank to system clipboard
+vim.keymap.set("n", "gzy", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "gzY", '"+y$', { desc = "Yank till end to system clipboard" })
+vim.keymap.set("v", "gzy", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set("v", "gzY", '"+y$', { desc = "Yank till end to system clipboard" })
 
--- Paste from above register
-vim.keymap.set("n", "gzp", '"1p', { desc = "Paste from above register" })
-vim.keymap.set("n", "gzP", '"1P', { desc = "Paste before from above register" })
-vim.keymap.set("v", "gzp", '"1p', { desc = "Paste from above register" })
-vim.keymap.set("v", "gzP", '"1P', { desc = "Paste before from above register" })
+-- Paste from system clipboard
+vim.keymap.set("n", "gzp", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set("n", "gzP", '"+P', { desc = "Paste before from system clipboard" })
+vim.keymap.set("v", "gzp", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set("v", "gzP", '"+P', { desc = "Paste before from system clipboard" })
