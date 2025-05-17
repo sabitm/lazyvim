@@ -45,6 +45,9 @@ vim.keymap.set("n", "g/", paste_escaped, { desc = "Paste escaped text into searc
 -- Add LspRestart keymap
 vim.keymap.set("n", "<leader>cz", ":LspRestart<CR>", { desc = "Restart LSP" })
 
+-- Toggle Codeium
+vim.keymap.set("n", "<leader>cx", ":Codeium Toggle<CR>", { desc = "Toggle Codeium" })
+
 -- Delete to system clipboard
 vim.keymap.set("n", "gzd", '"+d', { desc = "Delete to system clipboard" })
 vim.keymap.set("n", "gzD", '"+D', { desc = "Delete till end to system clipboard" })
