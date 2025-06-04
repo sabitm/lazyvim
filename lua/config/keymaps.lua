@@ -28,6 +28,18 @@ local function escape_special_chars(text)
 end
 
 -- Function to paste escaped text into the search bar
+local function paste_escaped_local()
+  -- Get the content of the unnamed register (which contains the copied text)
+  local copied_text = vim.fn.getreg('"')
+
+  -- Escape special characters in the copied text
+  local escaped_text = escape_special_chars(copied_text)
+
+  -- Paste the escaped text into the search bar
+  vim.api.nvim_feedkeys("/" .. escaped_text, "n", false)
+end
+
+-- Function to paste escaped text into the search bar
 local function paste_escaped()
   -- Get the content of the unnamed register (which contains the copied text)
   local copied_text = vim.fn.getreg("+")
@@ -39,8 +51,11 @@ local function paste_escaped()
   vim.api.nvim_feedkeys("/" .. escaped_text, "n", false)
 end
 
--- Map a key to trigger the paste_escaped function
-vim.keymap.set("n", "g/", paste_escaped, { desc = "Paste escaped text into search" })
+-- Trigger the paste_escaped_local function
+vim.keymap.set("n", "g/", paste_escaped_local, { desc = "Paste local escaped text into search" })
+
+-- Trigger the paste_escaped function
+vim.keymap.set("n", "gz/", paste_escaped, { desc = "Paste escaped text into search" })
 
 -- Add LspRestart keymap
 vim.keymap.set("n", "<leader>cz", ":LspRestart<CR>", { desc = "Restart LSP" })
