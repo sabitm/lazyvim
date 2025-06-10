@@ -63,6 +63,9 @@ vim.keymap.set("n", "<leader>cz", ":LspRestart<CR>", { desc = "Restart LSP" })
 -- Toggle Codeium
 vim.keymap.set("n", "<leader>cx", ":Codeium Toggle<CR>", { desc = "Toggle Codeium" })
 
+-- Copy current file path to system clipboard
+vim.keymap.set("n", "<leader>fP", ":let @+ = expand('%:p')<CR>", { desc = "Copy current file path" })
+
 -- Delete to system clipboard
 vim.keymap.set("n", "gzd", '"+d', { desc = "Delete to system clipboard" })
 vim.keymap.set("n", "gzD", '"+D', { desc = "Delete till end to system clipboard" })
