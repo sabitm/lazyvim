@@ -51,6 +51,13 @@ local function paste_escaped()
   vim.api.nvim_feedkeys("/" .. escaped_text, "n", false)
 end
 
+-- Set <space> as the leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Disable default <Space> mapping
+vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
+
 -- Trigger the paste_escaped_local function
 vim.keymap.set("n", "g/", paste_escaped_local, { desc = "Paste local escaped text into search" })
 
