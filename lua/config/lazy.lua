@@ -42,6 +42,7 @@ if vim.g.lite_mode then
     { "hrsh7th/nvim-cmp", enabled = false },
     { "folke/trouble.nvim", enabled = false },
     { "mrcjkb/rustaceanvim", enabled = false },
+    { "schrieveslaach/sonarlint.nvim", enabled = false },
   })
 end
 
