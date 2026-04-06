@@ -1,21 +1,32 @@
+local sonar_opts = {
+  server = {
+    cmd = {
+      vim.fn.expand("$HOME/.local/share/nvim/mason/bin/sonarlint-language-server"),
+      "-stdio",
+      "-analyzers",
+      vim.fn.expand("$HOME/.local/share/nvim/mason/share/sonarlint-analyzers/sonargo.jar"),
+    },
+  },
+  filetypes = {
+    "go",
+  },
+}
+
+function _G.sonar_setup()
+  if not vim.g.sonar_initialized then
+    require("sonarlint").setup(sonar_opts)
+    vim.g.sonar_initialized = true
+  end
+end
+
 return {
-  -- add sonar lint lsp
   {
     "schrieveslaach/sonarlint.nvim",
     url = "https://gitlab.com/schrieveslaach/sonarlint.nvim.git",
-    opts = {
-      server = {
-        -- Path to the sonar-lint-language-server executable
-        cmd = {
-          vim.fn.expand("$HOME/.local/share/nvim/mason/bin/sonarlint-language-server"),
-          "-stdio",
-          "-analyzers",
-          vim.fn.expand("$HOME/.local/share/nvim/mason/share/sonarlint-analyzers/sonargo.jar"),
-        },
-      },
-      filetypes = {
-        "go",
-      },
-    },
+    config = function()
+      if vim.g.sonar_enabled then
+        sonar_setup()
+      end
+    end,
   },
 }

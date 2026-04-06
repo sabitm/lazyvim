@@ -60,6 +60,24 @@ vim.keymap.set("n", "gz/", paste_escaped, { desc = "Paste escaped text into sear
 -- Add LspRestart keymap
 vim.keymap.set("n", "<leader>cz", ":LspRestart<CR>", { desc = "Restart LSP" })
 
+-- Toggle Sonar LSP
+vim.keymap.set("n", "<leader>cS", function()
+  if vim.g.sonar_enabled then
+    vim.g.sonar_enabled = false
+    for _, client in ipairs(vim.lsp.get_clients()) do
+      if client.name == "sonarlint.nvim" then
+        vim.lsp.stop_client(client.id)
+      end
+    end
+    vim.notify("Sonar LSP disabled", vim.log.levels.INFO)
+  else
+    vim.g.sonar_enabled = true
+    sonar_setup()
+    vim.cmd("e")
+    vim.notify("Sonar LSP enabled", vim.log.levels.INFO)
+  end
+end, { desc = "Toggle Sonar LSP" })
+
 -- Toggle Codeium
 vim.keymap.set("n", "<leader>cx", ":Codeium Toggle<CR>", { desc = "Toggle Codeium" })
 

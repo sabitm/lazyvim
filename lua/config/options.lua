@@ -7,3 +7,7 @@ vim.g.snacks_animate = false
 
 -- override clipboard
 vim.opt.clipboard = ""
+
+-- sonar LSP disabled by default
+vim.g.sonar_enabled = false
+vim.g.sonar_initialized = false
