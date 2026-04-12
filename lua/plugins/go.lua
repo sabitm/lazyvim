@@ -1,19 +1,14 @@
 return {
-  -- disable staticcheck
+  -- apply gopls overrides only when lang.go extra is enabled
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        gopls = {
-          settings = {
-            gopls = {
-              staticcheck = "unset",
-            },
-          },
-          mason = false,
-        },
-      },
-    },
+    opts = function(_, opts)
+      if not LazyVim.has_extra("lang.go") then return end
+      opts.servers = opts.servers or {}
+      opts.servers.gopls = vim.tbl_deep_extend("force", opts.servers.gopls or {}, {
+        settings = { gopls = { staticcheck = "unset" } },
+      })
+    end,
   },
   -- enable split long line
   -- {
