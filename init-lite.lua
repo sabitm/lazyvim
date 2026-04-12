@@ -5,5 +5,5 @@ vim.g.lite_mode = true
 require("config.lazy")
 
 -- additional overrides for lite mode
-vim.diagnostic.disable() -- disable diagnostics
+vim.diagnostic.enable(false) -- disable diagnostics
 vim.o.timeout = false -- wait forever for mapped key sequences
