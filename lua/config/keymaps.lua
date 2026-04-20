@@ -58,7 +58,7 @@ vim.keymap.set("n", "g/", paste_escaped_local, { desc = "Paste local escaped tex
 vim.keymap.set("n", "gz/", paste_escaped, { desc = "Paste escaped text into search" })
 
 -- Add LspRestart keymap
-vim.keymap.set("n", "<leader>cz", ":LspRestart<CR>", { desc = "Restart LSP" })
+vim.keymap.set("n", "<leader>cz", ":lsp restart<CR>", { desc = "Restart LSP" })
 
 -- Toggle Sonar LSP
 vim.keymap.set("n", "<leader>cS", function()
