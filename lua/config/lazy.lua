@@ -18,21 +18,26 @@ local spec = {
   -- core plugins
   { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
+  -- ai
+  { import = "lazyvim.plugins.extras.ai.codeium" },
+
   -- extras
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
   { import = "lazyvim.plugins.extras.editor.mini-move" },
 }
-
--- full mode additional extras
-if not vim.g.lite_mode then
-  table.insert(spec, { import = "lazyvim.plugins.extras.ai.codeium" })
-end
 
 -- custom plugins
 table.insert(spec, { import = "plugins" })
 
 -- lite mode overrides
 if vim.g.lite_mode then
+  -- disable codeium by default
+  vim.api.nvim_create_autocmd("VimEnter", {
+    once = true,
+    callback = function()
+      vim.cmd("Codeium Toggle")
+    end,
+  })
   vim.list_extend(spec, {
     { "neovim/nvim-lspconfig", enabled = false },
     { "mason-org/mason.nvim", enabled = false },
