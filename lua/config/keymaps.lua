@@ -81,6 +81,9 @@ end, { desc = "Toggle Sonar LSP" })
 -- Toggle Codeium
 vim.keymap.set("n", "<leader>cx", ":Codeium Toggle<CR>", { desc = "Toggle Codeium" })
 
+-- Sync Notebooks
+vim.keymap.set("n", "<leader>cv", "<cmd>!zk s<CR>", { desc = "Sync Notebooks" })
+
 -- Copy current file path to system clipboard
 vim.keymap.set("n", "<leader>fP", ":let @+ = expand('%:p')<CR>", { desc = "Copy current file path" })
 
